@@ -18,13 +18,12 @@ async function getWeatherByLocation(city){
      }
 
       function addWeatherToPage(data){
-        console.log(data);
           const temp = Ktoc(data.main.temp);
           const cityName = data.name; // Extracting city name
           const weather = document.createElement('div')
           weather.classList.add('weather');
 
-          weather.innerHTML = ` <h1>${cityName}</h1>
+          weather.innerHTML = ` <p>${cityName}'s Weather</p>
           <h2><img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /> ${temp}°C <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /></h2>
           <small>${data.weather[0].main}</small>`;
 
@@ -38,8 +37,6 @@ async function getWeatherByLocation(city){
      function Ktoc(K){
          return Math.floor(K - 273.15);
      }
-
-
 
      form.addEventListener('submit',(e) =>{
         e.preventDefault();
